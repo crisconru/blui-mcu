@@ -1,6 +1,7 @@
 # VSCode
 .vscode/
 # Platformio
+arduino/.gitignore
 arduino/.pioenvs
 arduino/.piolibdeps
 arduino/.vscode/.browse.c_cpp.db*
