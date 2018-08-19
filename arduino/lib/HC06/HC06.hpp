@@ -10,8 +10,8 @@ class HC06 {
         SoftwareSerial *bt;
         char end_char = '\n';
         bool activated = false;
+        void delete_bt();
     public:
-        HC06();
         HC06(const byte tx, const byte rx);
         ~HC06();
         void set_tx(const byte tx);

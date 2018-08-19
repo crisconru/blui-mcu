@@ -1,22 +1,32 @@
 #include "HC06.hpp"
 
-HC06::HC06(){}
-
 HC06::HC06(const byte tx, const byte rx){
     hc_tx = tx;
     hc_rx = rx;
+    delete_bt();
 }
 
-HC06::~HC06(){}
+HC06::~HC06(){
+    delete_bt();
+}
+
+void HC06::delete_bt(){
+    if(bt != nullptr){
+        delete bt;
+        bt = nullptr;
+    }
+}
 
 void HC06::set_tx(const byte tx){
     hc_tx = tx;
     activated = false;
+    delete_bt();
 }
 
 void HC06::set_rx(const byte rx){
     hc_rx = rx;
     activated = false;
+    delete_bt();
 }
 
 void HC06::begin(const long baud){
