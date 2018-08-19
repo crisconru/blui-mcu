@@ -35,7 +35,6 @@ void HC06::begin(const long baud){
     this->baud = baud;
     bt->begin(this->baud);
     activated = true;
-    Serial.println("BT -> activado");
 }
 
 String HC06::read(){
@@ -53,9 +52,12 @@ String HC06::read(){
 }
 
 void HC06::write(String msg){
+    //Serial.println("HC06 write( " + msg + " )");
     if(activated){
+        //Serial.println("Serial -> " + msg + " -> HC06");
         bt->print(msg);
     } else {
+        //Serial.println("activar el HC06");
         begin();
         write(msg);
     }
