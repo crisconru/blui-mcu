@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <HC05.hpp>
+//#include <HC05.hpp>
 #include <HC06.hpp>
 // HC05
 #define HC05_EN  13
@@ -11,7 +11,7 @@ const char begin_05 = '/';
 const char end_05 = '\\';
 boolean reading_05 = false;
 boolean completed_05 = true;
-HC05 hc05(HC05_EN, HC05_VCC, HC05_TX, HC05_RX, HC05_ST);
+//HC05 hc05(HC05_EN, HC05_VCC, HC05_TX, HC05_RX, HC05_ST);
 // HC06
 #define HC06_TX  14
 #define HC06_RX  15
@@ -46,10 +46,12 @@ void loop() {
     msg = hc06.read();
     if(msg != "")
         Serial.println("HC06 -> " + msg);
+    /*
     // Leer respuesta del HC-05
     msg = hc05.read();
     if(msg != "")
         Serial.println("HC05 -> " + msg);
+    */
     // Leer del Serial
     msg = leer_serial();
     if(msg != "")
@@ -63,6 +65,7 @@ String leer_serial(){
     while(Serial.available()){
         in_char = (char)Serial.read();
         switch(in_char){
+            /*
             case begin_05:
                 // Leer mensaje para HC-05
                 Serial.println("Leyendo comando AT para HC-05 ...");
@@ -76,6 +79,7 @@ String leer_serial(){
                 hc05.write(m);
                 completed_05 = true;
                 break;
+            */
             case begin_06:
                 // Leer mensaje HC-06
                 Serial.println("Leyendo comando AT para HC-06 ...");
