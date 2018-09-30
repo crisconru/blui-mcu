@@ -1,5 +1,6 @@
 # VSCode
 .vscode/
+.sonarlint/
 # Platformio
 arduino/.gitignore
 arduino/.pioenvs
@@ -7,6 +8,8 @@ arduino/.piolibdeps
 arduino/.vscode/.browse.c_cpp.db*
 arduino/.vscode/c_cpp_properties.json
 arduino/.vscode/launch.json
+# Mac
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
